@@ -4,9 +4,19 @@ function dosum() {
   // values = Number(values);
   // console.log(values);
   let tot = 0;
-  values.forEach((ele) => { tot += parseInt(ele); });
+  values.forEach((ele) => { tot += Number(ele); });
 
-  return tot;
+  console.log(tot);
+}
+function dosumdummy(...args) {
+  const values = args.slice();
+  // values = Number(values);
+  // console.log(values);
+  let tot = 0;
+  values.forEach((ele) => { tot += Number(ele); });
+
+  console.log(tot);
 }
 
-console.log(dosum());
+dosum();
+module.exports.dosumdummy = dosumdummy;

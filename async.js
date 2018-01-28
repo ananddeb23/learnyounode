@@ -6,9 +6,12 @@ const list = [];
 function printlist() {
   list.forEach(val => console.log(val));
 }
-
+function printlistdummy(list) {
+  list.forEach(val => console.log(val));
+}
 function getHttp(urlNo) {
   http.get(process.argv[urlNo + 1], (response) => {
+    console.log(process.argv[urlNo + 1]);
     response.pipe(bl((error, data) => {
       if (error) {
         return console.error(error);
@@ -25,3 +28,4 @@ function getHttp(urlNo) {
 getHttp(1);
 getHttp(3);
 getHttp(2);
+module.exports.printlist = printlist;

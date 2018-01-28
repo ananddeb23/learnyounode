@@ -22,7 +22,7 @@ function getISO(prop) {
 const server = http.createServer((request, response) => {
   const prop = url.parse(request.url, true);
   const pathname = prop.pathname;
-  console.log(pathname);
+  console.log(prop);
   // response.writeHead(200, { 'content-type': 'application/json' });
   if (pathname === '/api/unixtime') {
     const res = getUnix(prop);
@@ -38,3 +38,5 @@ const server = http.createServer((request, response) => {
   }
 });
 server.listen(process.argv[2]);
+module.exports.getUnix = getUnix;
+module.exports.getISO = getISO;

@@ -7,8 +7,15 @@ const hello = require('./hello');
 //
 //   expect(outputData).toBe('text');
 // });
+global.console = {
+  warn: jest.fn(),
+  log: jest.fn(),
+};
 describe('function runs correctly', () => {
-  test('returns undefined', () => {
+  test('returns safely with type undefined', () => {
     expect(hello.printHello()).toBe(undefined);
+  });
+  test('check console.log output', () => {
+    expect(global.console.log).toHaveBeenCalledWith('HELLO WORLD');
   });
 });

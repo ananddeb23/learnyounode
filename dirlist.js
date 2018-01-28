@@ -10,4 +10,17 @@ function readDir() {
   });
   // console.log('I ran ');
 }
-readDir();
+
+// readDir();
+function readDirdummy(filepath, ext, callbck) {
+  const inpExt = `.${ext}`;
+  const buffer = fs.readdir(filepath, 'utf8', (err, dirList) => {
+    // console.log(data);
+    const res = [];
+    const useful = dirList.filter(fileName => path.extname(fileName) === inpExt);
+    useful.forEach((filenm) => { res.push(filenm); });
+    callbck(res);
+  });
+  // console.log('I ran ');
+}
+module.exports.readDirdummy = readDirdummy;
